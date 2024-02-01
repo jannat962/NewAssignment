@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="conn.java" method="dialog">
+        <!-- <form id="carForm">  -->
+        <label for="carName">Car Name:</label>
+        <input type="text" id="carName" name="carName" required>
+
+        <label for="carModel">Car Model:</label>
+        <input type="text" id="carModel" name="carModel" required>
+
+        <label for="carYear">Car Year:</label>
+        <input type="number" id="carYear" name="carYear" required>
+
+        <label for="additionalInfo">Additional Info:</label>
+        <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    <!-- </form> -->
+</form>
+    
+
+
+    <div id="result"></div>
+
+    <script>
+        function submitForm() {
+            var carName = document.getElementById("carName").value;
+            var carModel = document.getElementById("carModel").value;
+            var carYear = document.getElementById("carYear").value;
+            var additionalInfo = document.getElementById("additionalInfo").value;
+
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `<strong>Submitted Information:</strong><br>
+                                   <strong>Name:</strong> ${carName}<br>
+                                   <strong>Model:</strong> ${carModel}<br>
+                                   <strong>Year:</strong> ${carYear}<br>
+                                   <strong>Additional Info:</strong> ${additionalInfo}`;
+        }
+    </script>
+</body>
+</html>
